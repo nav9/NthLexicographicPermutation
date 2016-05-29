@@ -1,0 +1,54 @@
+package nthpermutation;
+
+public class NthPermutation {
+
+    public static void main(String[] args) {
+                
+        int NthPermutationToConsider = 1;
+        
+        String sampleString = "abcd";
+        int numberOfLettersForPermutation = sampleString.length();
+        
+        String[] oneLetter = new String[numberOfLettersForPermutation];
+        String outputString = "";//string to be outputString
+        for (int i = 0; i < numberOfLettersForPermutation; i++) {
+            oneLetter[i] = sampleString.substring(i, i + 1);
+        }
+
+        int elements;
+        double pos;
+        float oldDivision;
+        float division;
+        elements = numberOfLettersForPermutation;
+        oldDivision = 0;
+
+        for (int i = 0; i < numberOfLettersForPermutation; i++) {
+            division = fac(elements) / elements;
+            float temp = NthPermutationToConsider / division;
+            pos = Math.ceil(temp);
+            outputString = outputString + oneLetter[(int) pos - 1];
+            oneLetter[(int) pos - 1] = "999";
+            elements--;
+            String[] t = new String[elements];
+            int counter = 0;
+            for (int j = 0; j < oneLetter.length; j++) {
+                if (!oneLetter[j].equals("999")) {
+                    t[counter++] = oneLetter[j];
+                }
+            }
+            oneLetter = t;
+            oldDivision = division;
+            NthPermutationToConsider = NthPermutationToConsider - ((int) oldDivision * ((int) pos - 1));
+        }
+        System.out.println(outputString);
+    }//main        
+
+    private static int fac(int n) {
+        int j = 1;
+        for (int i = 1; i <= n; i++) {
+            j = j * i;
+        }
+        return j;
+    }    
+    
+}//class
