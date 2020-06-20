@@ -1,7 +1,7 @@
 # NthLexicographicPermutation
 
 I created this algorithm at around August 2008.
-Also posted on my blog: http://nrecursions.blogspot.in/2014/02/nth-permutation-without-swapping.html
+Also posted on my blog: http://nrecursions.blogspot.com/2014/02/nth-permutation-without-swapping.html
 
 You'd get many programs for finding the N'th lexicographic (alphabetical order) permutation of a string. They're done with recursion and swapping.
 I present you a completely unique algorithm which I've devised myself. It makes use of no recursion or swapping. Besides, the algorithm is WAY shorter than the others.
